@@ -67,7 +67,7 @@ body{
 h1{
   justify-self: center;
   align-self: center;
-  font-size: 250%;
+  font-size: 240%;
   grid-column: 2;
   grid-row: 1;
 }

@@ -8,10 +8,10 @@ const form = document.querySelector("form")
 
 form.addEventListener("submit", e=>{
   e.preventDefault();
-  if(goodFoods.includes(foodInput.value)){
+  if(goodFoods.includes(foodInput.value.toLowerCase())){
     result.innerText = "Good";
     result.style.color = "lightgreen"
-  }else if(badFoods.includes(foodInput.value)){
+  }else if(badFoods.includes(foodInput.value.toLowerCase())){
     result.innerText = "Bad";
     result.style.color = "orange";
   }else{
