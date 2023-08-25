@@ -67,7 +67,7 @@ body{
 h1{
   justify-self: center;
   align-self: center;
-  font-size: 200%;
+  font-size: 250%;
   grid-column: 2;
   grid-row: 1;
 }
@@ -80,6 +80,11 @@ section{
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+label{
+  font-size: 130%;
+}
+
 form, h2, section a{
   width: 100%;
 }
@@ -89,6 +94,10 @@ input{
 
 #result{
   color: red;
+}
+
+h2, #result {
+  font-size: 150%;
 }
 
 footer{
@@ -108,4 +117,5 @@ span{
   text-align: center;
   vertical-align: bottom;
   color: lightgreen;
+  font-size 120%;
 }
