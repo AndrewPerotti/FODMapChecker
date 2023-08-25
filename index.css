@@ -70,6 +70,7 @@ h1{
   font-size: 200%;
   grid-column: 2;
   grid-row: 1;
+  margin-top: 50px;
 }
 
 section{
@@ -91,6 +92,7 @@ form, h2, section a{
 }
 input{
   width: 90%;
+  height: 30px;
 }
 
 #result{
@@ -119,5 +121,5 @@ span{
   vertical-align: bottom;
   color: lightgreen;
   font-size: 120%;
-  margin-top: 150px;
+  margin-top: 50px;
 }
