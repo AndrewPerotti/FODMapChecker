@@ -1,36 +1,35 @@
-let goodFoods = ['banana', "blueberry", "boysenberry", "canteloupe", "cranberry", "durian", "grape", "grapefruit", "honeydew", "kiwi", "lemon", "lime", "mandarin", "orange", "passionfruit", "pawpaw", "raspberry", "rhubarb", "rockmelon", "star anise", "strawberry", "tangelo", "sucrose", "glucose", "sugar", "maple syrup", "molasse", "treacle", "alfalfa", "artichoke", "bamboo shoot", "beat shoot", "bok choy", "carrot", "celery", "choko", "choy sum", "endive", "ginger", "green bean", "lettuce", "olive","parsnip", "potato", "pumpkin", "red bell pepper", "silver beet", "spinach", "summer squash", "yellow summer squash", "swede", "sweet potato", "taro", "tomato", "turnip", "yam", "zucchini", "gluten free bread", "gluten free cereal", "spelt bread", "rice", "oat", "polenta", "arrowroot", "millet", "psyliium", "quinoa", "sorgum", "tapioca", "oat milk", "rice milk", "soy milk", "lactose free milk", "hard cheese", "brie", "camembert", "lactose free yogurt", "gelati", "sorbet", "olive oil", "egg"]
-
 let badFoods = ["apple", "mango", "nashi", "pear", "canned fruit natural juice", "watermelon", "fructose", "high fructose corn syrup", "corn syrup", "honey", "concentrated fruit", "dried fruit", "fruit juice", "cow milk", "goat milk", "sheep milk", "custard", "ice cream", "yogurt", "soft cheese", "unripened cheese", "cottage cheese", "cream cheese", "mascarpone", "ricotta", "asparagus", "beetroot", "broccoli", "brussels sprout", "cabbage", "eggplant", "fennel", "garlic", "leek", "okra", "onion", "shallot", "what cereal", "rye cereal", "wheat bread", "rye bread", "wheat cracker", "rye cracker", "wheat cookie", "rye cookie", "wheat couscous", "rye couscous", "wheat pasta", "rye pasta", "custard apple", "persimmon", "watermelon", "chicory", "dandelion", "inulin", "beans", "baked beans", "chick peas", "kidney beans", "lentils", "apple", "apricot", "avocado", "blackberry", "cherry", "lychee", "nashi", "nectarine", "peach", "pear", "plum", "prune", "watermelon", "green bell pepper", "mushroom", "sweet corn", "sorbitol", "mannitol", "isomalt", "maltitol", "xylitol"]
 
-const foodInput = document.querySelector("#entry");
-const result = document.querySelector("#result");
-const form = document.querySelector("form")
 
-form.addEventListener("submit", e=>{
+/* Using edamam api to get ingredient arrays back after typing in a dish name */
+let button = document.querySelector("button")
+button.addEventListener('click', searchResults)
+
+function searchResults(e){
+  /* reset values before each instance of the function running */
+  document.querySelector("#result").innerText = "";
+  document.querySelector("#detailedResponse").innerText = "";
+  /*prevent buttons default behavior and set a variable equal to user input */
   e.preventDefault();
-  if(goodFoods.includes(foodInput.value.toLowerCase())){
-    result.innerText = "Good";
-    result.style.color = "lightgreen"
-  }else if(badFoods.includes(foodInput.value.toLowerCase())){
-    result.innerText = "Bad";
-    result.style.color = "orange";
-  }else{
-    result.innerText = "Uncertain";
-    result.style.color = "white";
-  }
-})
-
-//Initial work on functionality of dishes which uses allrecipes.com to get ingredients and then checks against those.
-// form.addEventListener("submit", e=>{
-//   e.preventDefault();
-//   //take in input
-//   //search allrecipes.com for a page for the dish that was input'ed
-//   const ingredients =  document.querySelectorAll('span[data-ingredient-name]:not([data-ingredient-name=""||data-ingredient-name="false"])').value
-//   for(let i = 0; i < ingredients.length; i++){
-//     if(goodFoods.includes(ingredients[i])){
-
-//     }else if(badFoods.includes(ingredients[i])){
-
-//     }
-//   }
-// })
+  /* save user input as a variable */
+  let userDish = document.querySelector("input").value
+  /* api request */
+  let url = "https://api.edamam.com/api/recipes/v2?type=public&q=" + `${userDish}` + "&app_id=c43ffafe&app_key=82072d26043fd563e1a68318f7ddbd70&field=ingredientLines";
+  fetch(url)
+    .then(res=>res.json())
+    .then(data=>{
+      /* save ingredient list as a vairable */
+      let dishIngredients = data.hits[0].recipe.ingredientLines;
+    /* Loop through ingredients and check if they contain any bad foods*/
+      for(let i = 0; i<dishIngredients.length; i++){
+        for(let j = 0; j<badFoods.length; j++){
+          /* if they do include bad ingredients then display "bad" after result, and list the suspect ingredient */
+          if(dishIngredients[i].includes(badFoods[j])){
+            document.querySelector("#result").innerText = "bad";
+            document.querySelector("#detailedResponse").innerText += dishIngredients[i]
+          }
+        }
+      }
+  })
+    .catch(err=>console.log(err))
+}
