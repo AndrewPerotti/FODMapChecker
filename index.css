@@ -63,6 +63,9 @@ body{
   grid-template-rows: repeat(3, 1fr);
   background-color: dimgray;
 }
+body > *{
+  text-align: center;
+}
 
 h1{
   justify-self: center;
@@ -87,7 +90,8 @@ label{
   font-size: 130%;
 }
 
-form, h2, section a{
+
+form, h2, section a, ul, h4{
   width: 100%;
 }
 input{
@@ -122,4 +126,12 @@ span{
   color: lightgreen;
   font-size: 120%;
   margin-top: 50px;
+}
+
+form{
+  margin-bottom: 5%;
+}
+
+input{
+  margin: 2% 0;
 }
