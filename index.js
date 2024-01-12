@@ -23,10 +23,13 @@ function searchResults(e){
     /* Loop through ingredients and check if they contain any bad foods*/
       for(let i = 0; i<dishIngredients.length; i++){
         for(let j = 0; j<badFoods.length; j++){
-          /* if they do include bad ingredients then display "bad" after result, and list the suspect ingredient */
+          /* if they do include bad ingredients then display "bad" after result, and list the suspect ingredients in list items in the ul classed with 'detailedResponse' */
           if(dishIngredients[i].includes(badFoods[j])){
             document.querySelector("#result").innerText = "bad";
-            document.querySelector("#detailedResponse").innerText += dishIngredients[i]
+
+            let li = document.createElement('li')
+            li.appendChild(document.createTextNode(`${dishIngredients[i]}`))
+            document.querySelector('#detailedResponse').appendChild(li)
           }
         }
       }
