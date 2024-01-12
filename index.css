@@ -122,10 +122,10 @@ span{
 }
 #wiki{
   text-align: center;
-  vertical-align: bottom;
   color: lightgreen;
   font-size: 120%;
   margin-top: 50px;
+  margin-bottom: 10px;
 }
 
 form{
