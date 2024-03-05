@@ -17,8 +17,9 @@ I decided it would be perfect to just have users be able to enter a dish name, l
 
 I could rewrite the app to take in ingredients, like "eggs", again and check against the bad foods array before requesting an object from the edmam.com API. 
 I probably use some kind of API for checking the spelling of input words from users and suggest the correct spelling.
-I should have the app tell a user if no recipe was found.
-Likewise, I should provide a link to the recipe edmam.com is referencing.
+I should have the app tell a user if no recipe was found. Edit: done.
+Likewise, I should provide a link to the recipe edmam.com is referencing. Edit: I have added the dish name of what the api is returning and using to populate an ingredient list.
+I could have the dish name be a specific color depending on if the dish is completely fodmap friendly (maybe green) vs when it is not (maybe red).
 
 
 
