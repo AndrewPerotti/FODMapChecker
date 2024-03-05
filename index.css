@@ -135,3 +135,14 @@ form{
 input{
   margin: 2% 0;
 }
+
+h3{
+  color: lightgreen;
+  font-size: 150%;
+  margin: 0 auto;
+}
+
+li{
+  color: red;
+  font-size: 120%;
+}
