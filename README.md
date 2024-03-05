@@ -4,7 +4,7 @@ I wanted to make a simple app that could tell a user if their entered food was <
 
 **Link to project:** https://flourishing-gaufre-b99432.netlify.app/
 
-![Screenshot of the FODMAP Checker APP](https://i.ibb.co/h2vBX2B/Screenshot-2024-02-08-at-12-40-14-PM.png)
+![Screenshot of the FODMAP Checker APP](https://i.ibb.co/YQ0h6H7/fodmap.png)
 
 ## How It's Made:
 **Tech used:** HTML, CSS, JavaScript, edmam.com API
