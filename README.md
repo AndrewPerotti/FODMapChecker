@@ -20,6 +20,8 @@ I probably use some kind of API for checking the spelling of input words from us
 I should have the app tell a user if no recipe was found. Edit: done.
 Likewise, I should provide a link to the recipe edmam.com is referencing. Edit: I have added the dish name of what the api is returning and using to populate an ingredient list.
 I could have the dish name be a specific color depending on if the dish is completely fodmap friendly (maybe green) vs when it is not (maybe red).
+I see that the edamam api returns a more advanced api string with a link to the recipe, and with images. I hope to in the future display a link to the recipe chosen as well as...
+I hope to add functionality so you can paste a recipe into the search field and the js will return what ingredients from your provided url are bad, hoping that I can use the same api for this ability..
 
 
 
