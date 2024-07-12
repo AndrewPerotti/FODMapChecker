@@ -46,7 +46,7 @@ function searchResults(e){
         }
         //check if there are any list items, if not then tell user their input might be a good dish, aka no ingredients found to be bad according to logic
         if(document.querySelector('ul').childElementCount == 0){
-          document.querySelector('#result').innerText = "Possible Safe"
+          document.querySelector('#result').innerText = "Possibly Safe"
         }
       }
   })
