@@ -27,7 +27,10 @@ function searchResults(e){
         //list the dish's name in the <h3>
         fetch(data.hits[0]["_links"]["self"]["href"])
           .then(res=>res.json())
-          .then(data=>document.querySelector('h3').innerText = data.recipe.label)
+          .then(data=>{
+            document.querySelector('h3').innerText = data.recipe.label
+            document.querySelector('#dishLink').href=data.recipe.url
+          })
           .catch(err=>console.log(err))
 
         // save first recipe's ingredient list as a variable
