@@ -10,6 +10,7 @@ function searchResults(e){
   // reset values before each instance of the function running 
   document.querySelector("#result").innerText = "";
   document.querySelector("#detailedResponse").innerText = "";
+  document.querySelector("#userDishName").innerText = "";
   //prevent buttons default behavior and set a variable equal to user input 
   e.preventDefault();
   // save user input as a variable 
@@ -19,9 +20,9 @@ function searchResults(e){
   fetch(url)
     .then(res=>res.json())
     .then(data=>{
-      console.log(data)
       if(data.count==0){ //if no recipe returned
         document.querySelector("#result").innerText = "no recipe found"
+        document.querySelector("#userDishName").innerText = userDish
       }else{//populate ul with bad ingredient li's
         //list the dish's name in the <h3>
         fetch(data.hits[0]["_links"]["self"]["href"])
